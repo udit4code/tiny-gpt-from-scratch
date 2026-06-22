@@ -1,2 +1,182 @@
-# tiny-gpt-from-scratch
+# Tiny GPT From Scratch
+
 Build a small character-level GPT end-to-end in pure NumPy, starting from tokenization and array basics and ending with multi-head self-attention, Adam, and sampling. Each step grows the same codebase from a bigram baseline into a fully working Transformer language model.
+
+## How to run
+
+```bash
+python scaffold.py
+```
+
+## Steps
+
+- [x] **1.** build_vocab
+- [x] **2.** build_stoi
+- [x] **3.** build_itos
+- [x] **4.** encode_char
+- [x] **5.** encode_string
+- [x] **6.** decode_int
+- [x] **7.** decode_ids
+- [x] **8.** make_1d_array
+- [x] **9.** get_array_shape
+- [x] **10.** get_array_dtype
+- [x] **11.** make_2d_zeros
+- [x] **12.** make_2d_random
+- [x] **13.** index_element
+- [x] **14.** slice_row
+- [x] **15.** slice_column
+- [x] **16.** slice_subblock
+- [x] **17.** elementwise_add
+- [x] **18.** elementwise_multiply
+- [x] **19.** scalar_broadcast_add
+- [x] **20.** vector_matrix_broadcast_add
+- [x] **21.** array_exp
+- [x] **22.** array_log
+- [x] **23.** sum_all
+- [x] **24.** sum_axis0
+- [x] **25.** sum_axis1
+- [x] **26.** max_along_axis
+- [x] **27.** matmul
+- [x] **28.** transpose_matrix
+- [x] **29.** sum_keepdims
+- [x] **30.** naive_softmax_1d
+- [x] **31.** softmax_overflow_demo
+- [x] **32.** stable_softmax_1d
+- [x] **33.** stable_softmax_2d_rowwise
+- [x] **34.** read_text_file
+- [x] **35.** encode_corpus_to_int_array
+- [x] **36.** pick_split_point
+- [x] **37.** slice_train_and_val
+- [x] **38.** pick_block_size
+- [x] **39.** slice_x_at_offset
+- [x] **40.** slice_y_at_offset
+- [x] **41.** sample_random_batch_offsets
+- [x] **42.** stack_x_batch
+- [x] **43.** stack_y_batch
+- [x] **44.** get_batch
+- [x] **45.** allocate_count_matrix
+- [x] **46.** loop_fill_counts
+- [x] **47.** vectorize_counts_add_at
+- [x] **48.** add_one_smoothing
+- [x] **49.** row_sums_of_counts
+- [x] **50.** normalize_counts_to_probs
+- [x] **51.** sample_next_token
+- [x] **52.** generate_sequence
+- [x] **53.** decode_generated_sequence
+- [x] **54.** log_prob_of_pair
+- [x] **55.** sum_negative_log_probs
+- [x] **56.** average_nll
+- [x] **57.** initialize_w_random
+- [x] **58.** scale_w_small
+- [x] **59.** one_hot_encode_batch
+- [x] **60.** forward_logits_onehot
+- [x] **61.** observe_lookup_equivalence
+- [x] **62.** forward_logits_lookup
+- [x] **63.** logits_to_probs_rowwise
+- [x] **64.** gather_correct_token_probs
+- [x] **65.** cross_entropy_loss
+- [x] **66.** derive_dlogits_on_paper
+- [x] **67.** compute_dlogits
+- [x] **68.** derive_dw_on_paper
+- [x] **69.** compute_dw_scatter_add
+- [x] **70.** sgd_update_w
+- [ ] **71.** run_one_training_step
+- [ ] **72.** train_neural_bigram_loop
+- [ ] **73.** sample_from_neural_bigram
+- [ ] **74.** linear_forward
+- [ ] **75.** derive_dx_on_paper
+- [ ] **76.** derive_linear_dw_on_paper
+- [ ] **77.** linear_backward_dx
+- [ ] **78.** linear_backward_dw
+- [ ] **79.** bias_add_forward
+- [ ] **80.** bias_add_backward_db
+- [ ] **81.** relu_forward
+- [ ] **82.** relu_backward
+- [ ] **83.** softmax_cross_entropy_backward
+- [ ] **84.** layernorm_forward_mean
+- [ ] **85.** layernorm_forward_variance
+- [ ] **86.** layernorm_forward_normalize
+- [ ] **87.** layernorm_forward_affine
+- [ ] **88.** layernorm_backward_subtract_mean
+- [ ] **89.** layernorm_backward_divide_std
+- [ ] **90.** layernorm_backward_full
+- [ ] **91.** layernorm_backward_implementation
+- [ ] **92.** create_token_embedding
+- [ ] **93.** token_embedding_forward
+- [ ] **94.** token_embedding_backward
+- [ ] **95.** create_positional_embedding
+- [ ] **96.** slice_positional_embedding
+- [ ] **97.** add_token_and_positional_embeddings
+- [ ] **98.** embedding_sum_backward
+- [ ] **99.** create_qkv_projections
+- [ ] **100.** compute_query
+- [ ] **101.** compute_key
+- [ ] **102.** compute_value
+- [ ] **103.** compute_attention_scores
+- [ ] **104.** scale_attention_scores
+- [ ] **105.** build_causal_mask
+- [ ] **106.** apply_causal_mask
+- [ ] **107.** softmax_attention_weights
+- [ ] **108.** attention_weighted_values
+- [ ] **109.** apply_output_projection
+- [ ] **110.** output_projection_backward
+- [ ] **111.** attention_value_backward
+- [ ] **112.** masked_softmax_backward
+- [ ] **113.** scale_scores_backward
+- [ ] **114.** qk_scores_backward
+- [ ] **115.** qkv_projection_backward
+- [ ] **116.** choose_attention_head_config
+- [ ] **117.** create_multihead_qkv_projections
+- [ ] **118.** create_multihead_output_projection
+- [ ] **119.** reshape_to_heads
+- [ ] **120.** transpose_heads_to_front
+- [ ] **121.** get_multihead_n_heads
+- [ ] **122.** get_multihead_sequence_length
+- [ ] **123.** compute_d_head
+- [ ] **124.** multihead_masked_softmax_scores
+- [ ] **125.** multihead_weighted_sum
+- [ ] **126.** transpose_heads_to_back
+- [ ] **127.** get_multihead_output_sequence_length
+- [ ] **128.** merge_heads_to_d_model
+- [ ] **129.** multihead_output_projection_forward
+- [ ] **130.** multihead_reshape_transpose_backward
+- [ ] **131.** ffn_linear_one_forward
+- [ ] **132.** ffn_activation_forward
+- [ ] **133.** ffn_linear_two_forward
+- [ ] **134.** ffn_backward
+- [ ] **135.** residual_forward
+- [ ] **136.** residual_backward
+- [ ] **137.** pre_layernorm_sublayer_forward
+- [ ] **138.** transformer_block_forward
+- [ ] **139.** transformer_block_backward
+- [ ] **140.** stack_transformer_blocks
+- [ ] **141.** forward_through_all_blocks
+- [ ] **142.** backward_through_all_blocks
+- [ ] **143.** final_layernorm_forward
+- [ ] **144.** lm_head_linear_forward
+- [ ] **145.** full_model_forward
+- [ ] **146.** full_model_backward
+- [ ] **147.** initialize_adam_moments
+- [ ] **148.** initialize_adam_step_counter
+- [ ] **149.** adam_increment_step
+- [ ] **150.** adam_update_first_moment
+- [ ] **151.** adam_update_second_moment
+- [ ] **152.** adam_bias_correction
+- [ ] **153.** adam_parameter_update
+- [ ] **154.** wire_full_training_loop
+- [ ] **155.** logging_and_validation_loss
+- [ ] **156.** encode_prompt
+- [ ] **157.** crop_context_to_block_size
+- [ ] **158.** forward_to_get_logits
+- [ ] **159.** take_last_position_logits
+- [ ] **160.** apply_temperature
+- [ ] **161.** top_k_filter
+- [ ] **162.** softmax_to_probs
+- [ ] **163.** sample_one_token
+- [ ] **164.** append_token_to_sequence
+- [ ] **165.** generation_loop_for_n_steps
+- [ ] **166.** decode_final_sequence
+
+---
+
+Built on Deep-ML.
